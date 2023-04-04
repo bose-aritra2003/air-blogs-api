@@ -67,11 +67,11 @@ app.route("/")
     //POST Route
     .post(async (req, res) => {
         const blog = new Blog({
-            title: req.body.title,
-            subtitle: req.body.subtitle,
-            content: req.body.content,
-            author: req.body.author,
-            date: req.body.date
+            title: encodeURIComponent(req.body.title),
+            subtitle: encodeURIComponent(req.body.subtitle),
+            content: encodeURIComponent(req.body.content),
+            author: encodeURIComponent(req.body.author),
+            date: encodeURIComponent(req.body.date)
         });
 
         await blog.save()
@@ -100,11 +100,11 @@ app.route("/:blogId")
     //PUT Route
     .put(async (req, res) => {
         await Blog.replaceOne({_id: req.params.blogId}, {
-            title: req.body.title,
-            subtitle: req.body.subtitle,
-            content: req.body.content,
-            author: req.body.author,
-            date: req.body.date
+            title: encodeURIComponent(req.body.title),
+            subtitle: encodeURIComponent(req.body.subtitle),
+            content: encodeURIComponent(req.body.content),
+            author: encodeURIComponent(req.body.author),
+            date: encodeURIComponent(req.body.date)
         })
             .then(() => res.send("Successfully replaced the blog"))
             .catch(err => res.send(err));
@@ -113,11 +113,11 @@ app.route("/:blogId")
     //PATCH Route
     .patch(async (req, res) => {
         await Blog.updateOne({_id: req.params.blogId}, {
-            title: req.body.title,
-            subtitle: req.body.subtitle,
-            content: req.body.content,
-            author: req.body.author,
-            date: req.body.date
+            title: encodeURIComponent(req.body.title),
+            subtitle: encodeURIComponent(req.body.subtitle),
+            content: encodeURIComponent(req.body.content),
+            author: encodeURIComponent(req.body.author),
+            date: encodeURIComponent(req.body.date)
         })
             .then(() => res.send("Successfully updated the blog"))
             .catch(err => res.send(err));
