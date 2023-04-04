@@ -1,3 +1,8 @@
+/*
+    Copyright (C) 2023 Air Blogs
+    Aritra Bose
+ */
+
 // Description: This file contains the code for the RESTful API for Air Blogs
 
 //Required Modules
@@ -69,7 +74,7 @@ app.route("/")
         const blog = new Blog({
             title: encodeURIComponent(req.body.title),
             subtitle: encodeURIComponent(req.body.subtitle),
-            content: encodeURIComponent(req.body.content),
+            content: encodeURIComponent(req.body.content.replace(/\n/g, '%0A')),
             author: encodeURIComponent(req.body.author),
             date: encodeURIComponent(req.body.date)
         });
