@@ -74,7 +74,7 @@ app.route("/")
         const blog = new Blog({
             title: req.body.title,
             subtitle: req.body.subtitle,
-            content: req.body.content.replace(/\n/g, '%0A'),
+            content: req.body.content,
             author: req.body.author,
             date: req.body.date
         });
@@ -107,7 +107,7 @@ app.route("/:blogId")
         await Blog.replaceOne({_id: req.params.blogId}, {
             title: req.body.title,
             subtitle: req.body.subtitle,
-            content: req.body.content.replace(/\n/g, '%0A'),
+            content: req.body.content,
             author: req.body.author,
             date: req.body.date
         })
@@ -120,7 +120,7 @@ app.route("/:blogId")
         await Blog.updateOne({_id: req.params.blogId}, {
             title: req.body.title,
             subtitle: req.body.subtitle,
-            content: req.body.content.replace(/\n/g, '%0A'),
+            content: req.body.content,
             author: req.body.author,
             date: req.body.date
         })
