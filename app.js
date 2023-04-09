@@ -80,7 +80,7 @@ app.route("/")
         });
 
         await blog.save()
-            .then(() => {res.send("Successfully added a new blog");})
+            .then(() => res.send("Successfully added a new blog"))
             .catch(err => res.send(err));
     })
 
